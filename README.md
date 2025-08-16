@@ -1,15 +1,5 @@
 # Basketball Learning Mobile App
 
-Ứng dụng học bóng rổ di động được xây dựng bằng Flutter và sử dụng GetX làm state management.
-
-## Tính năng chính
-
-- 🏀 **Trang chủ**: Giao diện đẹp với nút "Bắt đầu học"
-- 📚 **Danh sách bài học**: Hiển thị các bài học từ giáo viên với tìm kiếm và lọc theo độ khó
-- 🎥 **Xem video**: Xem video bài học với player tích hợp
-- 📱 **Quay video thực hành**: Sử dụng camera để quay video thực hành
-- ☁️ **Upload lên S3**: Lưu video thực hành lên AWS S3 (cần implement logic)
-
 ## Cấu trúc dự án
 
 ```
@@ -127,7 +117,7 @@ static Future<String?> uploadVideoToS3({
 1. **Cài đặt AWS SDK**:
    ```yaml
    dependencies:
-     aws_s3_upload: ^1.0.0  # hoặc package tương tự
+     aws_s3_upload: ^1.0.0 
    ```
 
 2. **Cấu hình AWS credentials**:
@@ -191,15 +181,3 @@ static Future<String?> uploadVideoToS3({
 - Kiểm tra AWS credentials
 - Đảm bảo bucket S3 có quyền write
 - Kiểm tra network connection
-
-## Liên hệ
-
-Nếu có vấn đề hoặc cần hỗ trợ, vui lòng tạo issue hoặc liên hệ trực tiếp.
-
----
-
-**Lưu ý**: Đây là ứng dụng demo với mock data. Để sử dụng trong production, bạn cần:
-1. Implement S3 upload logic
-2. Thay thế mock data bằng real API
-3. Thêm error handling và validation
-4. Test trên nhiều thiết bị khác nhau
