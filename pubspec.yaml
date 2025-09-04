@@ -61,6 +61,9 @@ dependencies:
   
   # AWS SDK for S3
   aws_s3_upload: ^1.0.0
+  
+  # Markdown support for OpenAI responses
+  flutter_markdown: ^0.6.18+2
 
 dev_dependencies:
   flutter_test:

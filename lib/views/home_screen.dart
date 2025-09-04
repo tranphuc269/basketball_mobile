@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/lesson_controller.dart';
 import 'lesson_list_screen.dart';
+import 'chat_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -121,7 +122,9 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     _buildFeature(Icons.video_library, 'Video HD'),
                     _buildFeature(Icons.school, 'Giáo viên chuyên nghiệp'),
-                    _buildFeature(Icons.track_changes, 'Theo dõi tiến độ'),
+                    _buildFeature(Icons.chat, 'Chatbot', onTap: () {
+                      Get.to(() => ChatScreen());
+                    }),
                   ],
                 ),
               ],
@@ -132,32 +135,35 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildFeature(IconData icon, String text) {
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(16),
+  Widget _buildFeature(IconData icon, String text, {VoidCallback? onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Icon(
+              icon,
+              color: Colors.white,
+              size: 24,
+            ),
           ),
-          child: Icon(
-            icon,
-            color: Colors.white,
-            size: 24,
+          SizedBox(height: 8),
+          Text(
+            text,
+            style: TextStyle(
+              color: Colors.white.withOpacity(0.9),
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+            ),
+            textAlign: TextAlign.center,
           ),
-        ),
-        SizedBox(height: 8),
-        Text(
-          text,
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.9),
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
-          ),
-          textAlign: TextAlign.center,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
